@@ -30,6 +30,7 @@ const Form = () => {
   //State del listado de criptomonedas
   const [crypto, setCrypto] = useState([]);
 
+  const [error, setError] = useState(false);
 
   const CURRENCIES = [
     {code: 'USD',name: 'Dolar de Estados Unidos'},
@@ -63,9 +64,25 @@ const Form = () => {
 
   },[]);
 
-  return ( 
-    <form>
+  const handleSubmit = e =>{
+    e.preventDefault();
 
+
+    //validar si ambos campos estan llenos
+
+    if(currency === '' || cryptocurrency === ''){
+      setError(true);
+      return;
+    }
+    //Pasar los datos al componente principal
+    setError(false);
+  }
+
+  return ( 
+    <form 
+      onSubmit={handleSubmit}
+    >
+      { error ? 'Hay un Error' : null}
       <SelectCurrency/>
       <SelectCrypto/>
       <Button
