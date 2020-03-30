@@ -13,7 +13,7 @@ const useCurrency = (label,initialState,options) =>{
     <Fragment>
 
       <label htmlFor="currency">{label}</label>
-      <select name="currency" id="currency">
+      <select name="currency" id="currency" onChange={e => setState(e.target.value)} value={state} >
         <option value="">- Seleccione -</option>
         {options.map(option =>(
           <option key={option.code} value={option.code} >{option.name}</option>
