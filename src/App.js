@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import image from './cryptomonedas.png';
 import Form from './components/Form';
 import Axios from 'axios';
+import Quotation from './components/Quotation';
 
 
 const Container = styled.div`
@@ -43,6 +44,8 @@ function App() {
   const [currency, setCurrency] = useState(''); 
 
   const [cryptocurrency, setCryptocurrency] = useState('');
+  const [result, setResult] = useState({});
+
 
 
   useEffect(()=>{
@@ -57,8 +60,10 @@ function App() {
       const result = await Axios.get(url);
     
       // console.log(result);
-      console.log(result.data.DISPLAY);
-      console.log(result.data.DISPLAY[cryptocurrency][currency]);
+      // console.log(result.data.DISPLAY);
+      // console.log(result.data.DISPLAY[cryptocurrency][currency]);
+
+      setResult(result.data.DISPLAY[cryptocurrency][currency]);
   
   
       // console.log('cotizando');
@@ -83,6 +88,9 @@ function App() {
         <Form
           setCurrency={setCurrency}
           setCryptocurrency={setCryptocurrency}
+        />
+        <Quotation 
+          result={result}
         />
 
       </div>
