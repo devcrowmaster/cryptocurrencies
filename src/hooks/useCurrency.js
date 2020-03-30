@@ -20,6 +20,7 @@ const Select = styled.select`
   /* -webkit-appearance: none; */
   font-size: 1.2rem;
   appearance: none;
+  margin-bottom: 2rem;
 `;
 
 const useCurrency = (label,initialState,options) =>{
