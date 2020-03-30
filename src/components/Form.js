@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import useCurrency from '../hooks/useCurrency';
 import useCryptocurrencies from '../hooks/useCryptocurrencies';
 import Axios from 'axios';
+import Error from './Error';
 
 
 
@@ -82,7 +83,7 @@ const Form = () => {
     <form 
       onSubmit={handleSubmit}
     >
-      { error ? 'Hay un Error' : null}
+      { error ? <Error message="Todos los campos son obligatorios"/> : null}
       <SelectCurrency/>
       <SelectCrypto/>
       <Button
