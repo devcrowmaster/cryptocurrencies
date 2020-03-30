@@ -22,8 +22,9 @@ const Select = styled.select`
   appearance: none;
 `;
 
-const useCryptocurrencies = (label,initialState,options) =>{
+const useCryptocurrencies = (label,initialState,cryptocurrency) =>{
 
+  console.log(cryptocurrency);
   //State del custom hook
 
   const [state, setState] = useState(initialState);
